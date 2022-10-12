@@ -9,7 +9,7 @@ param location string = resourceGroup().location
 resource vmName_vmName_scriptExtension 'Microsoft.Compute/virtualMachines/extensions@2021-03-01' = {
   parent: vmName_resource
   name: '${vmName}-scriptExtension'
-  location: resourceGroup().location
+  location: location
   tags: {
     displayName: 'scriptExtension for Windows VM'
   }
@@ -30,7 +30,7 @@ resource vmName_vmName_scriptExtension 'Microsoft.Compute/virtualMachines/extens
 
 resource vmName_NetworkInterface 'Microsoft.Network/networkInterfaces@2020-11-01' = {
   name: '${vmName}-NetworkInterface'
-  location: resourceGroup().location
+  location: location
   tags: {
     displayName: '${vmName} Network Interface'
   }
@@ -54,7 +54,7 @@ resource vmName_NetworkInterface 'Microsoft.Network/networkInterfaces@2020-11-01
 
 resource vmName_resource 'Microsoft.Compute/virtualMachines@2021-03-01' = {
   name: vmName
-  location: resourceGroup().location
+  location: location
   tags: {
     displayName: vmName
   }
