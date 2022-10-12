@@ -1,0 +1,61 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "apiVersion": "2020-08-01",
+      "type": "Microsoft.Network/publicIpAddresses",
+      "name": "[variables('publicIpAddressName')]",
+      "location": "[variables('location')]",
+      "sku": {
+        "name": "Standard"
+      },
+      "properties": {
+        "publicIPAllocationMethod": "Static"
+      },
+      "tags": {}
+    },
+    {
+      "apiVersion": "2020-11-01",
+      "dependsOn": [
+        "[resourceId(variables('resourceGroup'), 'Microsoft.Network/publicIpAddresses', variables('publicIpAddressName'))]"
+      ],
+      "location": "[variables('location')]",
+      "name": "[variables('bastionHostName')]",
+      "properties": {
+        "enableIpConnect": "[variables('enableIpConnect')]",
+        "enableTunneling": "[variables('enableTunneling')]",
+        "ipConfigurations": [
+          {
+            "name": "IpConf",
+            "properties": {
+              "subnet": {
+                "id": "[variables('subnetId')]"
+              },
+              "publicIPAddress": {
+                "id": "[resourceId(variables('resourceGroup'), 'Microsoft.Network/publicIpAddresses', variables('publicIpAddressName'))]"
+              }
+            }
+          }
+        ],
+        "scaleUnits": "[variables('bastionHostScaleUnits')]"
+      },
+      "sku": {
+        "name": "[variables('bastionHostSku')]"
+      },
+      "tags": {},
+      "type": "Microsoft.Network/bastionHosts"
+    }
+  ],
+  "variables": {
+    "bastionHostName": "ValhalBastion",
+    "bastionHostScaleUnits": 2,
+    "bastionHostSku": "Standard",
+    "enableIpConnect": false,
+    "enableTunneling": false,
+    "location": "westeurope",
+    "publicIpAddressName": "ValhalVnet-ip",
+    "resourceGroup": "Valhal-Network",
+    "subnetId": "/subscriptions/709da42c-e6eb-445f-ab27-20a28517c823/resourceGroups/Valhal-Network/providers/Microsoft.Network/virtualNetworks/ValhalVnet/subnets/AzureBastionSubnet"
+  }
+  }
