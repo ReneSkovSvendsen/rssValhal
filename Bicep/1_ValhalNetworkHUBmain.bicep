@@ -19,7 +19,7 @@ module Network 'Network.bicep' = {
   }
 }
 
-module Bastion 'ValhalBastion.bicep' = {
+/*module Bastion 'ValhalBastion.bicep' = {
   name: 'ValhalBastion'
   scope: resourceGroup(valhalNetworkRG.name)
   dependsOn:[
@@ -31,4 +31,4 @@ module Bastion 'ValhalBastion.bicep' = {
     bastionSubnet:bastionSubnet
   }
 }
-
+*/
