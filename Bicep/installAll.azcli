@@ -1,0 +1,1 @@
+az deployment sub create --name "DeployValhalHUB" --location westeurope --template-file .\1_ValhalNetworkHUBmain.bicep --verbose
