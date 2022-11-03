@@ -26,6 +26,7 @@ module Subnet 'Subnets.bicep' = {
     subnetPrefix: '10.0.1.0/24'
     vnetname: vnetname
   }
+  dependsOn: [Network]
 }
 
 
