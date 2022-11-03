@@ -20,7 +20,7 @@ resource vmName_vmName_scriptExtension 'Microsoft.Compute/virtualMachines/extens
     autoUpgradeMinorVersion: true
     settings: {
       fileUris: [
-        'https://valhalshellstorage01.blob.core.windows.net/valhaladscripts/InstallSSConf.ps1'
+        'https://raw.githubusercontent.com/ReneSkovSvendsen/rssValhal/main/ValhalGenericScripts/InstallSSConf.ps1'
       ]
       commandToExecute: 'powershell -ExecutionPolicy Bypass -file InstallSSConf.ps1'
     }
