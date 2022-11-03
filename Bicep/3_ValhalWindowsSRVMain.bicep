@@ -5,7 +5,7 @@ param subnet1 string = 'Subnet-1'
 param location string = az.deployment().location
 
 resource valhalWindowsSrvRG 'Microsoft.Resources/resourceGroups@2021-04-01' = {
-  name: 'Valhal-Network'
+  name: 'Valhal-WindowsSRV'
   location: location
 }
 
