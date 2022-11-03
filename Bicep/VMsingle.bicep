@@ -43,9 +43,9 @@ resource vmName_NetworkInterface 'Microsoft.Network/networkInterfaces@2020-11-01
           subnet: {
             id: resourceId('Valhal-Network', 'Microsoft.Network/virtualNetworks/subnets', vnet, subnet)
           }
-          publicIPAddress:{
+          /*publicIPAddress:{
             id:r_ValhalSingleVMPublicIP.id
-          }
+          }*/
         }
       }
     ]
