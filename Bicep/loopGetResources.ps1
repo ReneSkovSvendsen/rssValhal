@@ -1,7 +1,7 @@
-cls
+Clear-Host
 while (($resource | measure).Count -ne 0) {
-    cls
+    Clear-Host
     $resource = get-azresource
-    $resource | ft Name, ResourceGroup
+    $resource | Format-Table Name, ResourceGroup
     Start-Sleep -Seconds 2
 }
