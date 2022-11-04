@@ -3,6 +3,7 @@ Clear-Host
 while (($resource | Measure-Object).Count -ne 0) {
     Clear-Host
     Get-Date
-    $resource | Format-Table Name, ResourceGroup
+    $resource = Get-AzResource
+    $resource | Format-Table Name, ResourceGroupName
     Start-Sleep -Seconds 2
 }
