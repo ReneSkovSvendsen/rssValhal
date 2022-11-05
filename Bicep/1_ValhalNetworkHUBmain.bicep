@@ -1,7 +1,7 @@
 targetScope = 'subscription'
 param vnetname string = 'ValhalNetHub'
 param vnetadressSpace string = '172.16.0.0/16'
-param bastionSubnet string = '172.16.0.0/25'
+param bastionSubnet string = '172.16.0.0/24'
 param location string = az.deployment().location
 param deployBastian bool = true
 
@@ -18,8 +18,27 @@ module Network 'Network.bicep' = {
     vnetname: vnetname
     vnetAdressSpace:vnetadressSpace
   }
+  
 }
+module RouteServerSubnet 'Subnets.bicep' = {
+  scope: resourceGroup(valhalNetworkRG.name)
+  name: 'RouteServerSubnet'
+  params:{
+    subnetPrefix: '172.16.1.0/24'
+    subnetname: 'RouteServerSubnet'
+    vnetname: vnetname
+  } 
+  }
 
+module AzureFirewallSubnet 'Subnets.bicep' = {
+  scope: resourceGroup(valhalNetworkRG.name)
+  name: 'AzureFirewallSubnet'
+  params: {
+    subnetPrefix: '172.16.2.0/24'
+    subnetname: 'AzureFirewallSubnet'
+    vnetname: vnetname
+  }
+}
 
 module Bastion 'ValhalBastion.bicep' = if (deployBastian) {
   name: 'ValhalBastion'
