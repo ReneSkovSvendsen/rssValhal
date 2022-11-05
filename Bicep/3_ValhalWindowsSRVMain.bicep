@@ -19,14 +19,28 @@ module valhalserversubnet 'Subnets.bicep' = {
   }  
 }
 
-module valhalSingleWINServer 'VMsingle.bicep' =  {
-  name: 'ValhalSingleWINServer'
+module valhalSingleWINServer1 'VMsingle.bicep' =  {
+  name: 'ValhalSingleWINServer1'
   scope: resourceGroup(valhalWindowsSrvRG.name)
   dependsOn:[
     valhalserversubnet
   ]
   params:{
     vmName: 'VM01'
+    subnet: subnet1
+    vnet: vnetname
+    location: valhalWindowsSrvRG.location
+  }
+  
+}
+module valhalSingleWINServer2 'VMsingle.bicep' =  {
+  name: 'ValhalSingleWINServer2'
+  scope: resourceGroup(valhalWindowsSrvRG.name)
+  dependsOn:[
+    valhalserversubnet
+  ]
+  params:{
+    vmName: 'VM02'
     subnet: subnet1
     vnet: vnetname
     location: valhalWindowsSrvRG.location
