@@ -1,4 +1,4 @@
 cls
-az deployment sub create --name "DeployValhalHUB" --location westeurope --template-file .\bicep\1_ValhalNetworkHUBmain.bicep
-az deployment sub create --name "DeployValhalMain" --location westeurope --template-file .\bicep\2_ValhalNetworkMain.bicep
-az deployment sub create --name "DeployValhalSRVMain" --location westeurope --template-file .\bicep\3_ValhalWindowsSRVMain.bicep 
+az deployment sub create --name "DeployValhalHUB" --location westeurope --template-file .\bicep\1_ValhalNetworkHUBmain.bicep --verbose
+az deployment sub create --name "DeployValhalMain" --location westeurope --template-file .\bicep\2_ValhalNetworkMain.bicep --verbose
+az deployment sub create --name "DeployValhalSRVMain" --location westeurope --template-file .\bicep\3_ValhalWindowsSRVMain.bicep --verbose

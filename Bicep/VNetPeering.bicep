@@ -13,12 +13,6 @@ resource vnetPeering 'Microsoft.Network/virtualNetworks/virtualNetworkPeerings@2
   name: 'hub2main'
   parent: peeringVNetResource
   properties: {
-    allowForwardedTraffic: true
-    allowGatewayTransit: bool
-    allowVirtualNetworkAccess: bool
-    doNotVerifyRemoteGateways: bool
-    peeringState: 'Connected'
-    peeringSyncLevel: 'FullyInSync'
     remoteAddressSpace: {
       addressPrefixes: [
         '10.0.0.0/16'
@@ -32,6 +26,6 @@ resource vnetPeering 'Microsoft.Network/virtualNetworks/virtualNetworkPeerings@2
         '10.0.0.0/16'
       ]
     }
-    useRemoteGateways: bool
+    useRemoteGateways: false
   }
 }

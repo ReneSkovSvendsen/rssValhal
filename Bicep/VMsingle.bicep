@@ -43,9 +43,6 @@ resource vmName_NetworkInterface 'Microsoft.Network/networkInterfaces@2020-11-01
           subnet: {
             id: resourceId('Valhal-Network', 'Microsoft.Network/virtualNetworks/subnets', vnet, subnet)
           }
-          /*publicIPAddress:{
-            id:r_ValhalSingleVMPublicIP.id
-          }*/
         }
       }
     ]
@@ -75,7 +72,7 @@ resource vmName_resource 'Microsoft.Compute/virtualMachines@2021-03-01' = {
         version: 'latest'
       }
       osDisk: {
-        name: '${vmName}-VM01OSDisk'
+        name: '${vmName}-OSDisk'
         caching: 'ReadWrite'
         createOption: 'FromImage'
       }
@@ -88,18 +85,4 @@ resource vmName_resource 'Microsoft.Compute/virtualMachines@2021-03-01' = {
       ] 
     }
   }
-}
-
-
-resource r_ValhalSingleVMPublicIP 'Microsoft.Network/publicIPAddresses@2021-05-01' = {
-  name: 'ValhalSingleVMPublicIP'
-  sku: {
-    tier: 'Regional'
-    name: 'Standard'
-  }
-  properties:{
-    publicIPAllocationMethod: 'Static'
-    
-  }
-  location: location
 }

@@ -37,7 +37,7 @@ module valhalSingleWINServer2 'VMsingle.bicep' =  {
   name: 'ValhalSingleWINServer2'
   scope: resourceGroup(valhalWindowsSrvRG.name)
   dependsOn:[
-    valhalserversubnet
+    valhalserversubnet, valhalSingleWINServer1
   ]
   params:{
     vmName: 'VM02'
