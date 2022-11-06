@@ -8,5 +8,5 @@ while (($resource | Measure-Object).Count -ne 0) {
     Write-Host "Script running: " (Get-Date)
     Write-Host "Number of ressources: " ($resource | Measure-Object).Count
     $resource | Format-Table Name, ResourceGroupName
-    Start-Sleep -Seconds 5
+    Start-Sleep -Seconds 2
 }
