@@ -5,5 +5,5 @@ while (($resource | Measure-Object).Count -ne 0) {
     Get-Date
     $resource = Get-AzResource
     $resource | Format-Table Name, ResourceGroupName
-    Start-Sleep -Seconds 2
+    Start-Sleep -Seconds 5
 }
