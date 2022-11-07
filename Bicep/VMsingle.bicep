@@ -37,7 +37,7 @@ resource vmName_NetworkInterface 'Microsoft.Network/networkInterfaces@2020-11-01
   properties: {
     ipConfigurations: [
       {
-        name: 'ipConfig1'
+        name: '${vmName}-ipConfig1'
         properties: {
           privateIPAllocationMethod: 'Dynamic'
           subnet: {
