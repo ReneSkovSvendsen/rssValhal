@@ -2,5 +2,5 @@ cls
 az deployment sub create --name "DeployValhalHUB" --location westeurope --template-file .\bicep\1_ValhalNetworkHUBmain.bicep
 az deployment sub create --name "DeployValhalBastion" --location westeurope --template-file .\bicep\2_ValhalBastionMain.bicep --no-wait
 az deployment sub create --name "DeployValhalMain" --location westeurope --template-file .\bicep\3_ValhalNetworkMain.bicep
-az deployment sub create --name "DeployValhalSRVMain01" --location westeurope --template-file .\bicep\4_ValhalWindowsSRVMain.bicep --parameters vmname=VM01 subnetname=subnet-1
-az deployment sub create --name "DeployValhalSRVMain02" --location westeurope --template-file .\bicep\4_ValhalWindowsSRVMain.bicep --parameters vmname=VM02 subnetname=subnet-1
+az deployment sub create --name "DeployValhalSRVMain01" --location westeurope --template-file .\bicep\4_ValhalWindowsSRVMain.bicep --parameters vmname=VM01 subnetname=subnet-1 --no-wait
+az deployment sub create --name "DeployValhalSRVMain02" --location westeurope --template-file .\bicep\4_ValhalWindowsSRVMain.bicep --parameters vmname=VM02 subnetname=subnet-1 --no-wait
