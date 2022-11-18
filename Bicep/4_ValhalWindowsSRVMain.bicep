@@ -15,7 +15,7 @@ resource valhalServerSubnet 'Microsoft.Network/virtualNetworks/subnets@2022-05-0
 }
 
 module valhalSingleWINServer1 'VMsingle.bicep' =  {
-  name: 'ValhalSingleWINServer'
+  name: 'ValhalSingleWINServer-${vmname}'
   scope: resourceGroup(valhalWindowsSrvRG.name)
   dependsOn:[
     valhalServerSubnet
