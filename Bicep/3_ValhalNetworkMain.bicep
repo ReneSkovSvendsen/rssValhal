@@ -19,7 +19,7 @@ module Network 'Network.bicep' = {
 }
 
 module valhalserversubnet 'Subnets.bicep' = {
-  name: 'valhalserversubnet'
+  name: 'valhalserversubnet1'
   scope: resourceGroup(valhalNetworkRG.name)
   params: {
     subnetname: 'subnet-1'
@@ -27,6 +27,5 @@ module valhalserversubnet 'Subnets.bicep' = {
     subnetPrefix: '10.0.2.0/24'
   }  
 }
-
 
 
